@@ -15,7 +15,8 @@ public class UserWriter {
 
         if( !dir1.exists() )
             dir1.mkdirs();
-            File dir2 = new File( dir1, user.getTel());
+        
+        File dir2 = new File( dir1, user.getTel());
 
         if(!dir2.exists())
             dir2.mkdirs();

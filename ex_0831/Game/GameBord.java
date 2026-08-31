@@ -3,6 +3,7 @@ package Game;
 public class GameBord {
     private int low ;
     private int cul ;
+    private int boomInt;
 
     char[][] bord;
 
@@ -22,7 +23,6 @@ public class GameBord {
 
     public void setBoard(){
         bord = new char[cul][low];
-
         for(int i = 0; i < cul; i++){
             for(int j = 0; j < cul; j++){
                 bord[i][j] = '0';
@@ -30,6 +30,8 @@ public class GameBord {
         }
 
         int offset = 0;
+        boomInt = low * cul * 0.2;
+
         while(offset < low * cul * 0.2){
             int num = (int)(Math.random() * low * cul);
             int selcul = num/cul;
@@ -70,5 +72,9 @@ public class GameBord {
             b = true;
         }
         return b;
+    }
+
+    public char[][] getBord(){
+        return bord;
     }
 }
