@@ -3,8 +3,8 @@ package FramWork2;
 import java.awt.Button;
 import java.awt.Frame;
 import java.awt.Label;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class FramMain {
     public static void main(String[] args) {
@@ -60,11 +60,17 @@ public class FramMain {
 
         for(int i = 0; i < 5; i++){
             mathBtn[i].addActionListener(mathal);
-            f.add(mathBtn[i]);
         }
 
         awlb.setBounds(30, posY, 150, 30);
         f.add(awlb);
+
+        f.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                System.exit(0);
+            }
+        });
         f.setVisible(true);
     }
 }

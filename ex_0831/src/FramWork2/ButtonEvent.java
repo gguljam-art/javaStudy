@@ -17,7 +17,6 @@ public class ButtonEvent implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         String str = e.getActionCommand();
-        System.out.println(str);
         if(str.equals("=")){
             int answer = 0;
             switch (cmath) {
@@ -46,21 +45,24 @@ public class ButtonEvent implements ActionListener{
                     break;
             }
 
-            beStr.setLength(0);
             crt.setLength(0);
-            beStr.append(""+answer);
             crt.append(""+answer);
+            beStr.setLength(0);
+            beStr.append(crt);
+            cmath = '0';
             awlb.setText(crt.toString());
+            crt.setLength(0);
         }
         else{
-            if(str.charAt(0) < '0' && str.charAt(0) > '9'){
+            if(str.charAt(0) < '0' || str.charAt(0) > '9'){
                 cmath = str.charAt(0);
                 beStr.append(crt);
                 crt.setLength(0);
                 System.out.println((char)cmath);
+            }else{
+                crt.append(str);
+                awlb.setText(crt.toString());
             }
-            crt.append(str);
-            awlb.setText(crt.toString());
         }
         
     }
