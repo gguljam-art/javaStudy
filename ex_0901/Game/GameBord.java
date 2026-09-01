@@ -30,7 +30,7 @@ public class GameBord {
         }
 
         int offset = 0;
-        boomInt = low * cul * 0.2;
+        boomInt = (int)(low * cul * 0.2);
 
         while(offset < low * cul * 0.2){
             int num = (int)(Math.random() * low * cul);
@@ -49,6 +49,8 @@ public class GameBord {
                 }
             }
         }
+
+        GlobalState.bord = bord;
     }
 
     public void setCount(int cul, int low){

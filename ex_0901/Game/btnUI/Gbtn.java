@@ -2,8 +2,6 @@ package Game.btnUI;
 
 import java.awt.Font;
 import java.awt.Insets;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 
@@ -29,7 +27,11 @@ public class Gbtn extends JButton{
         this.addMouseListener(new GbtnEvent(this));
     }
 
-    public void setPush(){
+    public char getstr(){
+        return str;
+    }
+
+    public void setPush(){//버튼 눌렸을때 이벤트
         String flag = new String(Character.toChars(0X1F6A9));
         String t = this.getText();
 
@@ -71,6 +73,17 @@ public class Gbtn extends JButton{
             for(int j = lowStart; j <= lowEnd; j++){
                 if(bttns[i][j].isEnabled()){
                     bttns[i][j].setPush();
+                }
+            }
+        }
+    }
+
+    public void endgame(){
+        for(int i = 0; i < 10; i++){
+            for(int j = 0; j < 10; j++){
+                if(bttns[i][j].getstr() == '●'){
+                    bttns[i][j].setEnabled(false);
+                    bttns[i][j].setText(String.valueOf(str));
                 }
             }
         }
